@@ -8,9 +8,9 @@ import FastFoodList from "./components/FastFoodList";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [fastFoodItems, setFastFoodItems] = useState();
+  const [fastFoodItems, setFastFoodItems] = useState<any>();
 
-  const getFastFoodItems = async (categoryId = null) => {
+  const getFastFoodItems = async (categoryId: any = null) => {
     setLoading(true);
     const response = await axios.get(
       `FastFood/list/${categoryId ? "?categoryId=" + categoryId : ""}`
@@ -23,6 +23,10 @@ function App() {
     getFastFoodItems();
   }, []);
 
+  const filterItems = (categoryId: number) => {
+    getFastFoodItems(categoryId);
+  };
+
   const renderContent = () => {
     if (loading) {
       return <Loading theme="dark" />;
@@ -33,7 +37,7 @@ function App() {
   return (
     <div className="wrapper bg-faded-dark">
       <Header />
-      <CategoryList />
+      <CategoryList filterItems={filterItems} />
       <div className="container mt-4">{renderContent()}</div>
     </div>
   );

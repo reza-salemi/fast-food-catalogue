@@ -3,7 +3,7 @@ import axios from "../../services/axios";
 import { Categories } from "./type";
 import Loading from "../Loading";
 
-const CategoryList = () => {
+const CategoryList = ({ filterItems }: any) => {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState<Array<Categories>>();
 
@@ -23,13 +23,17 @@ const CategoryList = () => {
     }
     return (
       <ul className="nav">
-        <li className="nav-item">
+        <li className="nav-item" onClick={() => filterItems()}>
           <a className="nav-link" href="#">
             همه فست فود ها
           </a>
         </li>
         {categories?.map((category) => (
-          <li className="nav-item" key={category.id}>
+          <li
+            className="nav-item"
+            key={category.id}
+            onClick={() => filterItems(category.id)}
+          >
             <a className="nav-link" href="">
               {category.name}
             </a>
