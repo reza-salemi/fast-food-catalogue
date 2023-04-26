@@ -34,7 +34,7 @@ const CategoryList = ({ filterItems }: any) => {
             key={category.id}
             onClick={() => filterItems(category.id)}
           >
-            <a className="nav-link" href="">
+            <a className="nav-link" href="#">
               {category.name}
             </a>
           </li>
