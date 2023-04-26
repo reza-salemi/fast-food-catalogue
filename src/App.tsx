@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [fastFoodItems, setFastFoodItems] = useState<any>();
 
-  const getFastFoodItems = async (categoryId: any = null) => {
+  const getFastFoodItems = async (categoryId: null | number = null) => {
     setLoading(true);
     const response = await axios.get(
       `FastFood/list/${categoryId ? "?categoryId=" + categoryId : ""}`
