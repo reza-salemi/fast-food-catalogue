@@ -3,4 +3,5 @@ export interface FastFoodItemProps {
   price: number;
   ingredients: string;
   imageUrl: string;
+  delay: number;
 }

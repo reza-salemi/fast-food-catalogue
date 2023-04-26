@@ -50,7 +50,7 @@ function App() {
             برای کلیدواژه فوق هیچ آیتمی یافت نشد
           </div>
           <img
-            className="mx-auto mt-5 d-block"
+            className="mx-auto mt-5 d-block fade-in-horiz"
             src={notFound}
             alt="Not Found Image"
           />

@@ -4,10 +4,13 @@ import "./fastFoodItem.css";
 import { FastFoodItemProps } from "./type";
 
 const FastFoodItem = (props: FastFoodItemProps) => {
-  const { name, price, ingredients, imageUrl } = props;
+  const { name, price, ingredients, imageUrl, delay } = props;
 
   return (
-    <div className="card product-card h-100 border-0 shadow-sm pb-1">
+    <div
+      className="card product-card h-100 border-0 shadow-sm pb-1 fade-in-horiz"
+      style={{ animationDelay: delay + "s" }}
+    >
       <span className="badge badge-end badge-shadow bg-success fs-md fw-medium">
         قیمت: {price.toLocaleString()} تومان
       </span>
